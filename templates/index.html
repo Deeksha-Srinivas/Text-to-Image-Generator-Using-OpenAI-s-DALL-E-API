@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text-to-Image Generator</title>
+</head>
+<body>
+    <h1>Text-to-Image Generator</h1>
+    <form id="generate-form">
+        <input type="text" name="description" placeholder="Enter image description" required>
+        <button type="submit">Generate Image</button>
+    </form>
+    <div id="result">
+        <img id="generated-image" src="" alt="Generated image will appear here">
+    </div>
+
+    <script>
+        document.getElementById('generate-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const description = event.target.description.value;
+            const response = await fetch('/generate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `description=${encodeURIComponent(description)}`
+            });
+            const data = await response.json();
+            if (data.status === 'success') {
+                document.getElementById('generated-image').src = data.image_url;
+            } else {
+                alert(data.message);
+            }
+        });
+    </script>
+</body>
+</html>
