@@ -24,7 +24,7 @@ Before you begin, ensure you have the following installed on your system:
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/yourusername/Text-to-Image-Generator-Using-OpenAI-s-DALL-E-API.git
+   git clone https://github.com/Deeksha-Srinivas/Text-to-Image-Generator-Using-OpenAI-s-DALL-E-API.git
    cd Text-to-Image-Generator-Using-OpenAI-s-DALL-E-API
    
 2. **Set Up a Virtual Environment (Optional but Recommended):**
